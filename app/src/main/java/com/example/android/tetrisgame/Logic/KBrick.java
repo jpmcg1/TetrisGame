@@ -1,5 +1,7 @@
 package com.example.android.tetrisgame.Logic;
 
+import android.support.annotation.NonNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +34,12 @@ final class KBrick implements Brick {
                 {0, 2, 2, 0},
                 {0, 0, 0, 0},
         });
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return "KBrick";
     }
 
     @Override
