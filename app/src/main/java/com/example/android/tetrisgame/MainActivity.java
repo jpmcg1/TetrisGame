@@ -1,5 +1,6 @@
 package com.example.android.tetrisgame;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
