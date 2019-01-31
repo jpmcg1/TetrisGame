@@ -24,8 +24,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TetrisBoard board = new TetrisBoard(10,10);
+        TetrisBoard board = new TetrisBoard(5,10);
         GameMatrixOperations operations = new GameMatrixOperations();
 
+        board.printBoard();
+
+        operations.isOutOfBounds(board.getGameMatrix());
     }
 }

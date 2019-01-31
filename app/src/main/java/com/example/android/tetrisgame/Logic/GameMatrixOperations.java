@@ -1,11 +1,13 @@
 package com.example.android.tetrisgame.Logic;
 
+import android.graphics.Point;
+import android.util.Log;
+
 public class GameMatrixOperations {
-    // does a brick intersect
-    // does a brick go out of bounds
-    // copy the current game
-    // translate (if down then move down)
     // if in a row, remove line and translate everything down one
+    // merge bricks at the bottom
+
+    private Point point;
 
     public GameMatrixOperations() {
 
@@ -22,5 +24,29 @@ public class GameMatrixOperations {
             }
         }
         return copy;
+    }
+
+    // If the brick will be out of the bounds of the board after the move, return true
+    public boolean isOutOfBounds(int[][] board, int targetX, int targetY) {
+        if (targetX >= 0 && targetX < board[targetY].length && targetY < board.length) {
+            return false;
+        }
+        return true;
+    }
+
+    // If the intended brick move causes the game bounds to be intersected, or
+    // the move encounters another brick (non zero value), return true.
+    public boolean intersect(int[][] board, int x, int y) {
+        for (int i = 0; i < board.length; i ++){
+            for (int j = 0; j < board[i].length; j++) {
+                int targetX = i + x;
+                int targetY = j + y;
+                if (board[i][j] != 0 && isOutOfBounds(board, targetX, targetY)
+                        || board[targetX][targetY] != 0) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }

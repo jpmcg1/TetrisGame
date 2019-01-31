@@ -1,5 +1,6 @@
 package com.example.android.tetrisgame.Logic;
 
+import android.graphics.Point;
 import android.util.Log;
 
 import java.util.Arrays;
@@ -25,11 +26,6 @@ public class TetrisBoard {
         gameMatrix = new int[this.height][this.width];
         brickGenerator = new RandomBrickGenerator();
         rotater = new BrickRotation();
-    }
-
-    // Moves the brick downwards one step if possible
-    public boolean moveBrickDown() {
-        return true;
     }
 
     public int[][] getGameMatrix() {
