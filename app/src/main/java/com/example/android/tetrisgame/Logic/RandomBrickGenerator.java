@@ -8,10 +8,13 @@ import java.util.Random;
 
 public class RandomBrickGenerator {
 
-    Random rand = new Random();
-
+    // An arrayList of bricks containing one of each type
     private final List<Brick> brickList;
 
+    // A random number to identify a random brick from the brickList
+    Random rand = new Random();
+
+    // Constructor to generate the arrayList containing one of each type of brick
     public RandomBrickGenerator() {
         brickList = new ArrayList<>();
         brickList.add(new JBrick());
@@ -23,9 +26,14 @@ public class RandomBrickGenerator {
         brickList.add(new ZBrick());
     }
 
-    public List<int[][]> getRandomBrick() {
+    // This method returns a random brick from the brickList
+    public Brick getRandomBrick() {
         int n = rand.nextInt(brickList.size() + 1);
-        Brick brick = brickList.get(n);
-        return brick.getBrickMatrix();
+        return brickList.get(n);
+    }
+
+    // This method returns a random orientation for the brick
+    public int getRandomOrientation(Brick brick) {
+        return rand.nextInt(brick.getBrickMatrix().size() + 1);
     }
 }

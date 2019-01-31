@@ -4,4 +4,8 @@ import java.util.List;
 
 public interface Brick {
     List<int[][]> getBrickMatrix();
+
+    int getPosition();
+
+    void setPosition(int position);
 }
